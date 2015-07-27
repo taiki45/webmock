@@ -31,6 +31,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'excon',           '>= 0.27.5'
   s.add_development_dependency 'minitest',        '~> 5.0.0'
   s.add_development_dependency 'rdoc',            ((RUBY_VERSION == '1.8.6') ? '<= 3.5.0' : '>3.5.0')
+  s.add_development_dependency 'pry'
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
