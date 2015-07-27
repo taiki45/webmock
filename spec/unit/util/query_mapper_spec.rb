@@ -86,6 +86,12 @@ describe WebMock::Util::QueryMapper do
       values = { nil => 'value' }
       expect(subject.values_to_query values).to eq query
     end
+
+    it 'converts nested array values to a query string' do
+      query = "key%5Bnested%5D%5B%5D=a&key%5Bnested%5D%5B%5D=b"
+      values = { 'key' => { 'nested' => ['a', 'b'] } }
+      expect(subject.values_to_query values).to eq query
+    end
   end
 
   it 'converts array values, vice versa' do
