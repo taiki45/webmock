@@ -195,6 +195,7 @@ describe WebMock::Util::URI do
       # }
       uri_string = "http://www.example.com:80/path?load[include][][staff]=email&load[include][]=business_name"
       uri = WebMock::Util::URI.normalize_uri(uri_string)
+      expect(uri.query).to eq(CGI.escape("load[include][][staff]=email&load[include][]=business_name"))
       expect(WebMock::Util::QueryMapper.query_to_values(uri.query)).to eq({"load"=>{"include"=>[{"staff"=>"email"},"business_name"]}})
     end
 
