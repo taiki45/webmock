@@ -139,7 +139,7 @@ describe "Net:HTTP" do
     else
       expect do
         http.request(request)
-      end.to_not raise_error ArgumentError, "Net:HTTP does not accept headers as symbols"
+      end.to raise_error WebMock::NetConnectNotAllowedError
     end
   end
 
